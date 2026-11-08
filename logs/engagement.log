@@ -1,0 +1,465 @@
+2026-10-23 17:43:35.645 | INFO    | MainThread | -        | engagement     | Log file: /content/drive/MyDrive/Enagagement/logs/engagement.log (max 10MB x 5 backups)
+2026-10-23 17:43:35.832 | INFO    | MainThread | -        | engagement.api | === SERVER START | mode=sync | received_url=None | result_url=None | logs: level=INFO file=True ===
+2026-10-23 17:43:35.834 | INFO    | MainThread | -        | engagement.engine | STARTUP: model load ho raha hai | checkpoint=/content/drive/MyDrive/EngageNet/SAVPF-Result/Ex2-72/checkpoint-best.pth
+2026-10-23 17:43:58.270 | INFO    | MainThread | -        | engagement.engine | STARTUP model load ok | 22435ms
+2026-10-23 17:44:03.321 | INFO    | MainThread | -        | engagement.engine | STARTUP MediaPipe landmarker load ok | 5051ms
+2026-10-23 17:44:03.322 | INFO    | MainThread | -        | engagement.engine | READY | device=cuda:0 batch_size=4 num_workers=0 collect=16 wait_ms=50 max_buffer=256 full_batch_only=False full_batch_timeout=0s frames=16 sampling_rate=4 input=160 batch_callback=False
+2026-10-23 17:44:03.322 | INFO    | MainThread | -        | engagement.api | === SERVER READY | startup 27.5s ===
+2026-10-23 17:44:03.323 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-23 17:44:03.323 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-23 17:44:03.324 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-23 17:44:03.324 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-23 17:44:04.249 | INFO    | MainThread | -        | uvicorn.access | 127.0.0.1:60504 - "GET /health HTTP/1.1" 200
+2026-10-23 17:44:06.082 | INFO    | MainThread | -        | uvicorn.access | 34.186.20.116:0 - "GET /health HTTP/1.1" 200
+2026-10-23 17:51:11.477 | INFO    | MainThread | 34ef7bf7 | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=34ef7bf7ef5f464bad3195d6eeeaab8d
+2026-10-23 17:51:13.223 | INFO    | MainThread | 34ef7bf7 | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:51:13.223 | INFO    | MainThread | 34ef7bf7 | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:51:13.226 | INFO    | MainThread | 34ef7bf7 | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:51:13.227 | INFO    | MainThread | 34ef7bf7 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:51:13.227 | INFO    | MainThread | 34ef7bf7 | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:51:13.270 | INFO    | uvloop_0   | 34ef7bf7 | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:51:14.228 | INFO    | uvloop_0   | 34ef7bf7 | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 1000ms
+2026-10-23 17:51:14.653 | INFO    | uvloop_0   | 34ef7bf7 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 424ms
+2026-10-23 17:51:14.951 | INFO    | uvloop_0   | 34ef7bf7 | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:51:14.952 | INFO    | uvloop_0   | 34ef7bf7 | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 299ms
+2026-10-23 17:51:14.953 | INFO    | MainThread | 34ef7bf7 | engagement.engine | PREPROCESS ok | job=34ef7bf7 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1726ms
+2026-10-23 17:51:14.954 | INFO    | MainThread | 34ef7bf7 | engagement.engine | SUBMIT job=34ef7bf7 buffer me gaya | buffer=1/256
+2026-10-23 17:51:14.954 | INFO    | MainThread | 34ef7bf7 | engagement.engine | WAIT job=34ef7bf7 result ka intezar (timeout=120s)
+2026-10-23 17:51:15.004 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:51:15.005 | INFO    | batcher    | -        | engagement.engine | ROUND #1 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:51:15.020 | INFO    | batcher    | -        | engagement.engine | BATCH #1.1 | size=1 | jobs=['34ef7bf7'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:51:17.242 | INFO    | batcher    | -        | engagement.engine | BATCH #1.1 model forward ok | 2222ms (2222ms/sample)
+2026-10-23 17:51:17.247 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=34ef7bf7 | engagement=0 conf=0.4792 | prep=1726ms queue_wait=66ms infer=2222ms | total_in_server=4019ms
+2026-10-23 17:51:17.248 | INFO    | MainThread | 34ef7bf7 | engagement.engine | WAIT job=34ef7bf7 result mil gaya | waited=2293ms
+2026-10-23 17:51:17.248 | INFO    | batcher    | -        | engagement.engine | ROUND #1 done | 2244ms
+2026-10-23 17:51:17.249 | INFO    | MainThread | 34ef7bf7 | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=4021ms
+2026-10-23 17:51:17.249 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 5772ms (client ko response tak)
+2026-10-23 17:51:17.250 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:52:30.235 | INFO    | MainThread | 66ce2499 | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=66ce249944324f57b3b970b6bc192cee
+2026-10-23 17:52:32.427 | INFO    | MainThread | 66ce2499 | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:52:32.427 | INFO    | MainThread | 66ce2499 | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:52:32.429 | INFO    | MainThread | 66ce2499 | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:52:32.429 | INFO    | MainThread | 66ce2499 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:52:32.429 | INFO    | MainThread | 66ce2499 | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:52:32.449 | INFO    | uvloop_0   | 66ce2499 | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:52:33.351 | INFO    | uvloop_0   | 66ce2499 | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 922ms
+2026-10-23 17:52:33.764 | INFO    | uvloop_0   | 66ce2499 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 412ms
+2026-10-23 17:52:33.998 | INFO    | uvloop_0   | 66ce2499 | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:52:33.999 | INFO    | uvloop_0   | 66ce2499 | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 235ms
+2026-10-23 17:52:34.000 | INFO    | MainThread | 66ce2499 | engagement.engine | PREPROCESS ok | job=66ce2499 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1571ms
+2026-10-23 17:52:34.000 | INFO    | MainThread | 66ce2499 | engagement.engine | SUBMIT job=66ce2499 buffer me gaya | buffer=1/256
+2026-10-23 17:52:34.001 | INFO    | MainThread | 66ce2499 | engagement.engine | WAIT job=66ce2499 result ka intezar (timeout=120s)
+2026-10-23 17:52:34.051 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:52:34.051 | INFO    | batcher    | -        | engagement.engine | ROUND #2 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:52:34.060 | INFO    | batcher    | -        | engagement.engine | BATCH #2.1 | size=1 | jobs=['66ce2499'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:52:34.117 | INFO    | batcher    | -        | engagement.engine | BATCH #2.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:52:34.118 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=66ce2499 | engagement=0 conf=0.4792 | prep=1571ms queue_wait=60ms infer=57ms | total_in_server=1688ms
+2026-10-23 17:52:34.118 | INFO    | batcher    | -        | engagement.engine | ROUND #2 done | 67ms
+2026-10-23 17:52:34.119 | INFO    | MainThread | 66ce2499 | engagement.engine | WAIT job=66ce2499 result mil gaya | waited=118ms
+2026-10-23 17:52:34.119 | INFO    | MainThread | 66ce2499 | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1690ms
+2026-10-23 17:52:34.120 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 3885ms (client ko response tak)
+2026-10-23 17:52:34.120 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:53:44.755 | INFO    | MainThread | 4b8af45c | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=4b8af45c36444781ba568df8c987d1ab
+2026-10-23 17:53:46.446 | INFO    | MainThread | 4b8af45c | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:53:46.447 | INFO    | MainThread | 4b8af45c | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:53:46.448 | INFO    | MainThread | 4b8af45c | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:53:46.448 | INFO    | MainThread | 4b8af45c | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:53:46.449 | INFO    | MainThread | 4b8af45c | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:53:46.469 | INFO    | uvloop_0   | 4b8af45c | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:53:47.380 | INFO    | uvloop_0   | 4b8af45c | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 931ms
+2026-10-23 17:53:47.766 | INFO    | uvloop_0   | 4b8af45c | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 386ms
+2026-10-23 17:53:47.996 | INFO    | uvloop_0   | 4b8af45c | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:53:47.997 | INFO    | uvloop_0   | 4b8af45c | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 230ms
+2026-10-23 17:53:47.998 | INFO    | MainThread | 4b8af45c | engagement.engine | PREPROCESS ok | job=4b8af45c rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1549ms
+2026-10-23 17:53:47.998 | INFO    | MainThread | 4b8af45c | engagement.engine | SUBMIT job=4b8af45c buffer me gaya | buffer=1/256
+2026-10-23 17:53:47.998 | INFO    | MainThread | 4b8af45c | engagement.engine | WAIT job=4b8af45c result ka intezar (timeout=120s)
+2026-10-23 17:53:48.048 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:53:48.049 | INFO    | batcher    | -        | engagement.engine | ROUND #3 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:53:48.053 | INFO    | batcher    | -        | engagement.engine | BATCH #3.1 | size=1 | jobs=['4b8af45c'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:53:48.110 | INFO    | batcher    | -        | engagement.engine | BATCH #3.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:53:48.111 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=4b8af45c | engagement=0 conf=0.4792 | prep=1549ms queue_wait=55ms infer=57ms | total_in_server=1662ms
+2026-10-23 17:53:48.111 | INFO    | batcher    | -        | engagement.engine | ROUND #3 done | 63ms
+2026-10-23 17:53:48.112 | INFO    | MainThread | 4b8af45c | engagement.engine | WAIT job=4b8af45c result mil gaya | waited=113ms
+2026-10-23 17:53:48.112 | INFO    | MainThread | 4b8af45c | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1663ms
+2026-10-23 17:53:48.112 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 3357ms (client ko response tak)
+2026-10-23 17:53:48.113 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:53:50.798 | INFO    | MainThread | 86f06096 | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=86f06096452942fcae360af7a301c5a8
+2026-10-23 17:53:52.048 | INFO    | MainThread | 86f06096 | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:53:52.049 | INFO    | MainThread | 86f06096 | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:53:52.050 | INFO    | MainThread | 86f06096 | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:53:52.050 | INFO    | MainThread | 86f06096 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:53:52.051 | INFO    | MainThread | 86f06096 | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:53:52.071 | INFO    | uvloop_0   | 86f06096 | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:53:52.982 | INFO    | uvloop_0   | 86f06096 | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 931ms
+2026-10-23 17:53:53.375 | INFO    | uvloop_0   | 86f06096 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 392ms
+2026-10-23 17:53:53.625 | INFO    | uvloop_0   | 86f06096 | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:53:53.626 | INFO    | uvloop_0   | 86f06096 | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 250ms
+2026-10-23 17:53:53.626 | INFO    | MainThread | 86f06096 | engagement.engine | PREPROCESS ok | job=86f06096 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1576ms
+2026-10-23 17:53:53.627 | INFO    | MainThread | 86f06096 | engagement.engine | SUBMIT job=86f06096 buffer me gaya | buffer=1/256
+2026-10-23 17:53:53.627 | INFO    | MainThread | 86f06096 | engagement.engine | WAIT job=86f06096 result ka intezar (timeout=120s)
+2026-10-23 17:53:53.677 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:53:53.677 | INFO    | batcher    | -        | engagement.engine | ROUND #4 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:53:53.681 | INFO    | batcher    | -        | engagement.engine | BATCH #4.1 | size=1 | jobs=['86f06096'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:53:53.739 | INFO    | batcher    | -        | engagement.engine | BATCH #4.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:53:53.739 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=86f06096 | engagement=0 conf=0.4792 | prep=1576ms queue_wait=55ms infer=57ms | total_in_server=1688ms
+2026-10-23 17:53:53.739 | INFO    | batcher    | -        | engagement.engine | ROUND #4 done | 62ms
+2026-10-23 17:53:53.740 | INFO    | MainThread | 86f06096 | engagement.engine | WAIT job=86f06096 result mil gaya | waited=113ms
+2026-10-23 17:53:53.740 | INFO    | MainThread | 86f06096 | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1689ms
+2026-10-23 17:53:53.741 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 2943ms (client ko response tak)
+2026-10-23 17:53:53.741 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:53:57.103 | INFO    | MainThread | 3d2fd857 | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=3d2fd857a15443fd9921b84f9598ef7c
+2026-10-23 17:53:58.329 | INFO    | MainThread | 3d2fd857 | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:53:58.329 | INFO    | MainThread | 3d2fd857 | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:53:58.331 | INFO    | MainThread | 3d2fd857 | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:53:58.331 | INFO    | MainThread | 3d2fd857 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:53:58.331 | INFO    | MainThread | 3d2fd857 | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:53:58.351 | INFO    | uvloop_0   | 3d2fd857 | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:53:59.275 | INFO    | uvloop_0   | 3d2fd857 | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 944ms
+2026-10-23 17:53:59.681 | INFO    | uvloop_0   | 3d2fd857 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 405ms
+2026-10-23 17:53:59.931 | INFO    | uvloop_0   | 3d2fd857 | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:53:59.931 | INFO    | uvloop_0   | 3d2fd857 | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 250ms
+2026-10-23 17:53:59.932 | INFO    | MainThread | 3d2fd857 | engagement.engine | PREPROCESS ok | job=3d2fd857 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1601ms
+2026-10-23 17:53:59.933 | INFO    | MainThread | 3d2fd857 | engagement.engine | SUBMIT job=3d2fd857 buffer me gaya | buffer=1/256
+2026-10-23 17:53:59.933 | INFO    | MainThread | 3d2fd857 | engagement.engine | WAIT job=3d2fd857 result ka intezar (timeout=120s)
+2026-10-23 17:53:59.983 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:53:59.983 | INFO    | batcher    | -        | engagement.engine | ROUND #5 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:53:59.988 | INFO    | batcher    | -        | engagement.engine | BATCH #5.1 | size=1 | jobs=['3d2fd857'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:54:00.045 | INFO    | batcher    | -        | engagement.engine | BATCH #5.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:54:00.045 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=3d2fd857 | engagement=0 conf=0.4792 | prep=1601ms queue_wait=55ms infer=57ms | total_in_server=1714ms
+2026-10-23 17:54:00.046 | INFO    | batcher    | -        | engagement.engine | ROUND #5 done | 62ms
+2026-10-23 17:54:00.046 | INFO    | MainThread | 3d2fd857 | engagement.engine | WAIT job=3d2fd857 result mil gaya | waited=113ms
+2026-10-23 17:54:00.046 | INFO    | MainThread | 3d2fd857 | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1715ms
+2026-10-23 17:54:00.047 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 2944ms (client ko response tak)
+2026-10-23 17:54:00.047 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:54:04.580 | INFO    | MainThread | fda32c7b | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=fda32c7b4bd9485d981835786ea8e252
+2026-10-23 17:54:05.830 | INFO    | MainThread | fda32c7b | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:54:05.831 | INFO    | MainThread | fda32c7b | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:54:05.833 | INFO    | MainThread | fda32c7b | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:54:05.833 | INFO    | MainThread | fda32c7b | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:54:05.833 | INFO    | MainThread | fda32c7b | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:54:05.854 | INFO    | uvloop_0   | fda32c7b | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:54:06.831 | INFO    | uvloop_0   | fda32c7b | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 997ms
+2026-10-23 17:54:07.222 | INFO    | uvloop_0   | fda32c7b | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 391ms
+2026-10-23 17:54:07.470 | INFO    | uvloop_0   | fda32c7b | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:54:07.470 | INFO    | uvloop_0   | fda32c7b | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 247ms
+2026-10-23 17:54:07.471 | INFO    | MainThread | fda32c7b | engagement.engine | PREPROCESS ok | job=fda32c7b rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1638ms
+2026-10-23 17:54:07.472 | INFO    | MainThread | fda32c7b | engagement.engine | SUBMIT job=fda32c7b buffer me gaya | buffer=1/256
+2026-10-23 17:54:07.472 | INFO    | MainThread | fda32c7b | engagement.engine | WAIT job=fda32c7b result ka intezar (timeout=120s)
+2026-10-23 17:54:07.522 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:54:07.523 | INFO    | batcher    | -        | engagement.engine | ROUND #6 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:54:07.527 | INFO    | batcher    | -        | engagement.engine | BATCH #6.1 | size=1 | jobs=['fda32c7b'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:54:07.584 | INFO    | batcher    | -        | engagement.engine | BATCH #6.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:54:07.584 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=fda32c7b | engagement=0 conf=0.4792 | prep=1638ms queue_wait=55ms infer=57ms | total_in_server=1751ms
+2026-10-23 17:54:07.585 | INFO    | batcher    | -        | engagement.engine | ROUND #6 done | 62ms
+2026-10-23 17:54:07.585 | INFO    | MainThread | fda32c7b | engagement.engine | WAIT job=fda32c7b result mil gaya | waited=113ms
+2026-10-23 17:54:07.585 | INFO    | MainThread | fda32c7b | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1752ms
+2026-10-23 17:54:07.586 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 3006ms (client ko response tak)
+2026-10-23 17:54:07.586 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-23 17:55:00.878 | INFO    | MainThread | 6fac5e5f | engagement.api | API HIT  | POST /predict/video | client=153.117.1.175 | content-length=3634280 | rid=6fac5e5f3507482eb2f5fbadf87e813b
+2026-10-23 17:55:02.534 | INFO    | MainThread | 6fac5e5f | engagement.api | ENDPOINT /predict/video | landmarks=MediaPipe
+2026-10-23 17:55:02.534 | INFO    | MainThread | 6fac5e5f | engagement.api | STEP 1 meta parse ok | keys=['user_id']
+2026-10-23 17:55:02.536 | INFO    | MainThread | 6fac5e5f | engagement.api | STEP 2 upload read | video='o000 (1).mp4' size=3.63MB
+2026-10-23 17:55:02.536 | INFO    | MainThread | 6fac5e5f | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-23 17:55:02.537 | INFO    | MainThread | 6fac5e5f | engagement.engine | PREPROCESS start | prep=prep_video
+2026-10-23 17:55:02.556 | INFO    | uvloop_0   | 6fac5e5f | engagement.engine | Video: file='o000 (1).mp4' size=3.63MB total_frames=252 | sampled idx=[94, 98, 102, 106, 111, 115, 119, 123, 128, 132, 136, 140, 145, 149, 153, 157]
+2026-10-23 17:55:03.481 | INFO    | uvloop_0   | 6fac5e5f | engagement.engine | PREP 1/3 video decode + frame sampling (decord) ok | 944ms
+2026-10-23 17:55:03.876 | INFO    | uvloop_0   | 6fac5e5f | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 394ms
+2026-10-23 17:55:04.136 | INFO    | uvloop_0   | 6fac5e5f | engagement.engine | MediaPipe: chehra mila 16/16 frames
+2026-10-23 17:55:04.137 | INFO    | uvloop_0   | 6fac5e5f | engagement.engine | PREP 3/3 landmarks (MediaPipe) ok | 260ms
+2026-10-23 17:55:04.138 | INFO    | MainThread | 6fac5e5f | engagement.engine | PREPROCESS ok | job=6fac5e5f rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=1601ms
+2026-10-23 17:55:04.138 | INFO    | MainThread | 6fac5e5f | engagement.engine | SUBMIT job=6fac5e5f buffer me gaya | buffer=1/256
+2026-10-23 17:55:04.138 | INFO    | MainThread | 6fac5e5f | engagement.engine | WAIT job=6fac5e5f result ka intezar (timeout=120s)
+2026-10-23 17:55:04.188 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-23 17:55:04.189 | INFO    | batcher    | -        | engagement.engine | ROUND #7 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-23 17:55:04.193 | INFO    | batcher    | -        | engagement.engine | BATCH #7.1 | size=1 | jobs=['6fac5e5f'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-23 17:55:04.250 | INFO    | batcher    | -        | engagement.engine | BATCH #7.1 model forward ok | 57ms (57ms/sample)
+2026-10-23 17:55:04.251 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=6fac5e5f | engagement=0 conf=0.4792 | prep=1601ms queue_wait=55ms infer=57ms | total_in_server=1714ms
+2026-10-23 17:55:04.251 | INFO    | batcher    | -        | engagement.engine | ROUND #7 done | 62ms
+2026-10-23 17:55:04.251 | INFO    | MainThread | 6fac5e5f | engagement.engine | WAIT job=6fac5e5f result mil gaya | waited=113ms
+2026-10-23 17:55:04.252 | INFO    | MainThread | 6fac5e5f | engagement.api | RESPONSE sync | engagement=0 confidence=0.4792 | pipeline total=1715ms
+2026-10-23 17:55:04.252 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/video -> 200 | 3374ms (client ko response tak)
+2026-10-23 17:55:04.253 | INFO    | MainThread | -        | uvicorn.access | 153.117.1.175:0 - "POST /predict/video HTTP/1.1" 200
+2026-10-24 07:05:55.156 | INFO    | MainThread | -        | engagement     | Log file: /content/drive/MyDrive/Enagagement/logs/engagement.log (max 10MB x 5 backups)
+2026-10-24 07:05:56.104 | INFO    | MainThread | -        | engagement.api | === SERVER START | mode=sync | received_url=None | result_url=None | logs: level=INFO file=True ===
+2026-10-24 07:05:56.106 | INFO    | MainThread | -        | engagement.engine | STARTUP: model load ho raha hai | checkpoint=/content/drive/MyDrive/EngageNet/SAVPF-Result/Ex2-72/checkpoint-best.pth
+2026-10-24 07:06:26.797 | INFO    | MainThread | -        | engagement.engine | STARTUP model load ok | 30690ms
+2026-10-24 07:06:34.970 | INFO    | MainThread | -        | engagement.engine | STARTUP MediaPipe landmarker load ok | 8173ms
+2026-10-24 07:06:34.971 | INFO    | MainThread | -        | engagement.engine | READY | device=cuda:0 batch_size=4 num_workers=0 collect=16 wait_ms=50 max_buffer=256 full_batch_only=False full_batch_timeout=0s frames=16 sampling_rate=4 input=160 batch_callback=False
+2026-10-24 07:06:34.972 | INFO    | MainThread | -        | engagement.api | === SERVER READY | startup 38.9s ===
+2026-10-24 07:06:34.972 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-24 07:06:34.972 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-24 07:06:34.973 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-24 07:06:34.973 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-24 07:06:35.291 | INFO    | MainThread | -        | uvicorn.access | 127.0.0.1:42488 - "GET /health HTTP/1.1" 200
+2026-10-31 15:10:31.115 | INFO    | MainThread | -        | engagement     | Log file: /content/drive/MyDrive/Enagagement/logs/engagement.log (max 10MB x 5 backups)
+2026-10-31 15:10:32.011 | INFO    | MainThread | -        | engagement.api | === SERVER START | mode=sync | received_url=None | result_url=None | logs: level=INFO file=True ===
+2026-10-31 15:10:32.013 | INFO    | MainThread | -        | engagement.engine | STARTUP: model load ho raha hai | checkpoint=/content/drive/MyDrive/EngageNet/SAVPF-Result/Ex2-72/checkpoint-best.pth
+2026-10-31 15:10:57.382 | INFO    | MainThread | -        | engagement.engine | STARTUP model load ok | 25368ms
+2026-10-31 15:11:02.931 | INFO    | MainThread | -        | engagement.engine | STARTUP MediaPipe landmarker load ok | 5549ms
+2026-10-31 15:11:02.932 | INFO    | MainThread | -        | engagement.engine | READY | device=cuda:0 batch_size=4 num_workers=0 collect=16 wait_ms=50 max_buffer=256 full_batch_only=False full_batch_timeout=0s frames=16 sampling_rate=4 input=160 batch_callback=False
+2026-10-31 15:11:02.933 | INFO    | MainThread | -        | engagement.api | === SERVER READY | startup 30.9s ===
+2026-10-31 15:11:02.934 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-31 15:11:02.934 | INFO    | MainThread | -        | uvicorn.error  | Application startup complete.
+2026-10-31 15:11:02.935 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-31 15:11:02.935 | INFO    | MainThread | -        | uvicorn.error  | Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-31 15:11:03.302 | INFO    | MainThread | -        | uvicorn.access | 127.0.0.1:50386 - "GET /health HTTP/1.1" 200
+2026-10-31 15:11:05.482 | INFO    | MainThread | -        | uvicorn.access | 34.178.185.63:0 - "GET /health HTTP/1.1" 200
+2026-10-31 15:25:58.874 | INFO    | MainThread | bfd9b736 | engagement.api | API HIT  | GET / | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=bfd9b736346b4725b1dc95a39d22f47a
+2026-10-31 15:25:58.874 | INFO    | MainThread | -        | engagement.api | API DONE | GET / -> 404 | 1ms (client ko response tak)
+2026-10-31 15:25:58.875 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET / HTTP/1.1" 404
+2026-10-31 15:25:59.737 | INFO    | MainThread | c6d28025 | engagement.api | API HIT  | GET /favicon.ico | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=c6d280254a8e42e488f1d715c98dd430
+2026-10-31 15:25:59.737 | INFO    | MainThread | -        | engagement.api | API DONE | GET /favicon.ico -> 404 | 1ms (client ko response tak)
+2026-10-31 15:25:59.738 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /favicon.ico HTTP/1.1" 404
+2026-10-31 15:26:51.026 | INFO    | MainThread | c6f4984a | engagement.api | API HIT  | GET / | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=c6f4984a37194cea880cebc6664faa53
+2026-10-31 15:26:51.027 | INFO    | MainThread | -        | engagement.api | API DONE | GET / -> 404 | 1ms (client ko response tak)
+2026-10-31 15:26:51.028 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET / HTTP/1.1" 404
+2026-10-31 15:27:15.684 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /health HTTP/1.1" 200
+2026-10-31 15:29:01.039 | INFO    | MainThread | 318df85a | engagement.api | API HIT  | GET /openapi.json | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=318df85acd52485b958c512da92dd60a
+2026-10-31 15:29:01.053 | INFO    | MainThread | -        | engagement.api | API DONE | GET /openapi.json -> 200 | 13ms (client ko response tak)
+2026-10-31 15:29:01.053 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /openapi.json HTTP/1.1" 200
+2026-10-31 15:29:23.695 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /health HTTP/1.1" 200
+2026-10-31 15:29:24.802 | INFO    | MainThread | 4d5a28e8 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=1244042 | rid=4d5a28e8477a4e08bd0d1355f7fc83cd
+2026-10-31 15:29:26.436 | INFO    | MainThread | 4d5a28e8 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:29:26.436 | INFO    | MainThread | 4d5a28e8 | engagement.api | STEP 1 meta parse ok | keys=['shape', 'dtype']
+2026-10-31 15:29:26.437 | INFO    | MainThread | 4d5a28e8 | engagement.api | STEP 2 upload read | frames=16 total=1.23MB | landmarks=0.01MB
+2026-10-31 15:29:26.438 | INFO    | MainThread | 4d5a28e8 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:29:26.438 | INFO    | MainThread | 4d5a28e8 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:29:26.454 | WARNING | uvloop_0   | 4d5a28e8 | engagement.engine | PREP 1/3 frames decode FAILED | 15ms | BadInput: Frame 0 decode nahi hui (image file nahi?).
+2026-10-31 15:29:26.454 | WARNING | MainThread | 4d5a28e8 | engagement.api | REJECT 422 | Frame 0 decode nahi hui (image file nahi?).
+2026-10-31 15:29:26.455 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 422 | 1652ms (client ko response tak)
+2026-10-31 15:29:26.455 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 422
+2026-10-31 15:29:47.984 | INFO    | MainThread | c5e81471 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=22086 | rid=c5e8147198924de598bf2ed55a36b2b7
+2026-10-31 15:29:48.116 | INFO    | MainThread | c5e81471 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:29:48.116 | INFO    | MainThread | c5e81471 | engagement.api | STEP 1 meta parse ok | keys=['windowIndex']
+2026-10-31 15:29:48.116 | INFO    | MainThread | c5e81471 | engagement.api | STEP 2 upload read | frames=16 total=0.01MB | landmarks=0.01MB
+2026-10-31 15:29:48.117 | INFO    | MainThread | c5e81471 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:29:48.117 | INFO    | MainThread | c5e81471 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:29:48.139 | INFO    | uvloop_0   | c5e81471 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:29:48.140 | INFO    | uvloop_0   | c5e81471 | engagement.engine | PREP 1/3 frames decode ok | 23ms
+2026-10-31 15:29:48.164 | INFO    | uvloop_0   | c5e81471 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 24ms
+2026-10-31 15:29:48.164 | WARNING | uvloop_0   | c5e81471 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) FAILED | 0ms | BadInput: landmarks .npy parh nahi sake: Cannot load file containing pickled data when allow_pickle=False
+2026-10-31 15:29:48.165 | WARNING | MainThread | c5e81471 | engagement.api | REJECT 422 | landmarks .npy parh nahi sake: Cannot load file containing pickled data when allow_pickle=False
+2026-10-31 15:29:48.165 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 422 | 181ms (client ko response tak)
+2026-10-31 15:29:48.166 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 422
+2026-10-31 15:30:13.913 | INFO    | MainThread | 33629acc | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=19702 | rid=33629acca1244a499f90e80d8f231087
+2026-10-31 15:30:14.137 | INFO    | MainThread | 33629acc | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:30:14.138 | INFO    | MainThread | 33629acc | engagement.api | STEP 1 meta parse ok | keys=['windowIndex']
+2026-10-31 15:30:14.138 | INFO    | MainThread | 33629acc | engagement.api | STEP 2 upload read | frames=16 total=0.01MB | landmarks=0.01MB
+2026-10-31 15:30:14.138 | INFO    | MainThread | 33629acc | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:30:14.139 | INFO    | MainThread | 33629acc | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:30:14.141 | INFO    | uvloop_0   | 33629acc | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:30:14.142 | INFO    | uvloop_0   | 33629acc | engagement.engine | PREP 1/3 frames decode ok | 3ms
+2026-10-31 15:30:14.149 | INFO    | uvloop_0   | 33629acc | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 7ms
+2026-10-31 15:30:14.150 | INFO    | uvloop_0   | 33629acc | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:30:14.150 | INFO    | MainThread | 33629acc | engagement.engine | PREPROCESS ok | job=33629acc rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=12ms
+2026-10-31 15:30:14.151 | INFO    | MainThread | 33629acc | engagement.engine | SUBMIT job=33629acc buffer me gaya | buffer=1/256
+2026-10-31 15:30:14.151 | INFO    | MainThread | 33629acc | engagement.engine | WAIT job=33629acc result ka intezar (timeout=120s)
+2026-10-31 15:30:14.201 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:30:14.202 | INFO    | batcher    | -        | engagement.engine | ROUND #1 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:30:14.217 | INFO    | batcher    | -        | engagement.engine | BATCH #1.1 | size=1 | jobs=['33629acc'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:30:16.353 | INFO    | batcher    | -        | engagement.engine | BATCH #1.1 model forward ok | 2136ms (2136ms/sample)
+2026-10-31 15:30:16.361 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=33629acc | engagement=0 conf=0.6376 | prep=12ms queue_wait=66ms infer=2136ms | total_in_server=2222ms
+2026-10-31 15:30:16.362 | INFO    | batcher    | -        | engagement.engine | ROUND #1 done | 2160ms
+2026-10-31 15:30:16.362 | INFO    | MainThread | 33629acc | engagement.engine | WAIT job=33629acc result mil gaya | waited=2211ms
+2026-10-31 15:30:16.363 | INFO    | MainThread | 33629acc | engagement.api | RESPONSE sync | engagement=0 confidence=0.6376 | pipeline total=2224ms
+2026-10-31 15:30:16.363 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 2451ms (client ko response tak)
+2026-10-31 15:30:16.364 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:31:39.002 | INFO    | MainThread | c2ed21ad | engagement.api | API HIT  | GET / | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=c2ed21ad7302456280d914724c9c4bc5
+2026-10-31 15:31:39.003 | INFO    | MainThread | -        | engagement.api | API DONE | GET / -> 404 | 1ms (client ko response tak)
+2026-10-31 15:31:39.003 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET / HTTP/1.1" 404
+2026-10-31 15:31:40.128 | INFO    | MainThread | 1fc1b4b5 | engagement.api | API HIT  | GET /info | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=1fc1b4b51b5548179ea05fbedacd761a
+2026-10-31 15:31:40.129 | INFO    | MainThread | -        | engagement.api | API DONE | GET /info -> 404 | 1ms (client ko response tak)
+2026-10-31 15:31:40.129 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /info HTTP/1.1" 404
+2026-10-31 15:31:40.436 | INFO    | MainThread | e7d7d9d0 | engagement.api | API HIT  | GET /config | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=e7d7d9d01cd14699b1a72ebf1333cb49
+2026-10-31 15:31:40.437 | INFO    | MainThread | -        | engagement.api | API DONE | GET /config -> 404 | 1ms (client ko response tak)
+2026-10-31 15:31:40.437 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /config HTTP/1.1" 404
+2026-10-31 15:31:40.766 | INFO    | MainThread | 65477cc0 | engagement.api | API HIT  | GET /labels | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=65477cc04bd44decadf7ee4e4902d82f
+2026-10-31 15:31:40.767 | INFO    | MainThread | -        | engagement.api | API DONE | GET /labels -> 404 | 1ms (client ko response tak)
+2026-10-31 15:31:40.768 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /labels HTTP/1.1" 404
+2026-10-31 15:31:41.079 | INFO    | MainThread | 58c6c399 | engagement.api | API HIT  | GET /classes | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=? | rid=58c6c399031e4290a6d99708abd8b432
+2026-10-31 15:31:41.080 | INFO    | MainThread | -        | engagement.api | API DONE | GET /classes -> 404 | 1ms (client ko response tak)
+2026-10-31 15:31:41.080 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "GET /classes HTTP/1.1" 404
+2026-10-31 15:34:40.868 | INFO    | MainThread | 70b4d250 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=19941 | rid=70b4d2504c6a439fbd16f6cf6d7e92b1
+2026-10-31 15:34:40.870 | INFO    | MainThread | 70b4d250 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:34:40.870 | INFO    | MainThread | 70b4d250 | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:34:40.870 | INFO    | MainThread | 70b4d250 | engagement.api | STEP 2 upload read | frames=16 total=0.01MB | landmarks=0.01MB
+2026-10-31 15:34:40.871 | INFO    | MainThread | 70b4d250 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:34:40.871 | INFO    | MainThread | 70b4d250 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:34:40.874 | INFO    | uvloop_0   | 70b4d250 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:34:40.874 | INFO    | uvloop_0   | 70b4d250 | engagement.engine | PREP 1/3 frames decode ok | 3ms
+2026-10-31 15:34:40.880 | INFO    | uvloop_0   | 70b4d250 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:34:40.880 | INFO    | uvloop_0   | 70b4d250 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:34:40.881 | INFO    | MainThread | 70b4d250 | engagement.engine | PREPROCESS ok | job=70b4d250 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=10ms
+2026-10-31 15:34:40.881 | INFO    | MainThread | 70b4d250 | engagement.engine | SUBMIT job=70b4d250 buffer me gaya | buffer=1/256
+2026-10-31 15:34:40.881 | INFO    | MainThread | 70b4d250 | engagement.engine | WAIT job=70b4d250 result ka intezar (timeout=120s)
+2026-10-31 15:34:40.931 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:34:40.932 | INFO    | batcher    | -        | engagement.engine | ROUND #2 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:34:40.941 | INFO    | batcher    | -        | engagement.engine | BATCH #2.1 | size=1 | jobs=['70b4d250'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:34:40.999 | INFO    | batcher    | -        | engagement.engine | BATCH #2.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:34:40.999 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=70b4d250 | engagement=0 conf=0.6376 | prep=10ms queue_wait=60ms infer=57ms | total_in_server=128ms
+2026-10-31 15:34:41.000 | INFO    | batcher    | -        | engagement.engine | ROUND #2 done | 68ms
+2026-10-31 15:34:41.000 | INFO    | MainThread | 70b4d250 | engagement.engine | WAIT job=70b4d250 result mil gaya | waited=118ms
+2026-10-31 15:34:41.000 | INFO    | MainThread | 70b4d250 | engagement.api | RESPONSE sync | engagement=0 confidence=0.6376 | pipeline total=129ms
+2026-10-31 15:34:41.001 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 133ms (client ko response tak)
+2026-10-31 15:34:41.001 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:42:30.492 | INFO    | MainThread | 928c8dae | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=637163 | rid=928c8daee9b14a30b12a2878a0165192
+2026-10-31 15:42:31.955 | INFO    | MainThread | 928c8dae | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:42:31.956 | INFO    | MainThread | 928c8dae | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:42:31.956 | INFO    | MainThread | 928c8dae | engagement.api | STEP 2 upload read | frames=16 total=0.62MB | landmarks=0.01MB
+2026-10-31 15:42:31.956 | INFO    | MainThread | 928c8dae | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:42:31.957 | INFO    | MainThread | 928c8dae | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:42:31.967 | INFO    | uvloop_0   | 928c8dae | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:42:31.968 | INFO    | uvloop_0   | 928c8dae | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:42:31.973 | INFO    | uvloop_0   | 928c8dae | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:42:31.974 | INFO    | uvloop_0   | 928c8dae | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:42:31.974 | INFO    | MainThread | 928c8dae | engagement.engine | PREPROCESS ok | job=928c8dae rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=17ms
+2026-10-31 15:42:31.974 | INFO    | MainThread | 928c8dae | engagement.engine | SUBMIT job=928c8dae buffer me gaya | buffer=1/256
+2026-10-31 15:42:31.975 | INFO    | MainThread | 928c8dae | engagement.engine | WAIT job=928c8dae result ka intezar (timeout=120s)
+2026-10-31 15:42:32.025 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:42:32.025 | INFO    | batcher    | -        | engagement.engine | ROUND #3 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:42:32.029 | INFO    | batcher    | -        | engagement.engine | BATCH #3.1 | size=1 | jobs=['928c8dae'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:42:32.087 | INFO    | batcher    | -        | engagement.engine | BATCH #3.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:42:32.087 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=928c8dae | engagement=0 conf=0.4499 | prep=17ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:42:32.087 | INFO    | batcher    | -        | engagement.engine | ROUND #3 done | 62ms
+2026-10-31 15:42:32.088 | INFO    | MainThread | 928c8dae | engagement.engine | WAIT job=928c8dae result mil gaya | waited=113ms
+2026-10-31 15:42:32.088 | INFO    | MainThread | 928c8dae | engagement.api | RESPONSE sync | engagement=0 confidence=0.4499 | pipeline total=131ms
+2026-10-31 15:42:32.089 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1597ms (client ko response tak)
+2026-10-31 15:42:32.089 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:42:32.978 | INFO    | MainThread | 2cd8727a | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=649454 | rid=2cd8727a65a84382a07bfe96655d7d6c
+2026-10-31 15:42:34.112 | INFO    | MainThread | 2cd8727a | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:42:34.113 | INFO    | MainThread | 2cd8727a | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:42:34.114 | INFO    | MainThread | 2cd8727a | engagement.api | STEP 2 upload read | frames=16 total=0.64MB | landmarks=0.01MB
+2026-10-31 15:42:34.114 | INFO    | MainThread | 2cd8727a | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:42:34.115 | INFO    | MainThread | 2cd8727a | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:42:34.125 | INFO    | uvloop_0   | 2cd8727a | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:42:34.126 | INFO    | uvloop_0   | 2cd8727a | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:42:34.131 | INFO    | uvloop_0   | 2cd8727a | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:42:34.131 | INFO    | uvloop_0   | 2cd8727a | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:42:34.132 | INFO    | MainThread | 2cd8727a | engagement.engine | PREPROCESS ok | job=2cd8727a rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=17ms
+2026-10-31 15:42:34.132 | INFO    | MainThread | 2cd8727a | engagement.engine | SUBMIT job=2cd8727a buffer me gaya | buffer=1/256
+2026-10-31 15:42:34.132 | INFO    | MainThread | 2cd8727a | engagement.engine | WAIT job=2cd8727a result ka intezar (timeout=120s)
+2026-10-31 15:42:34.182 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:42:34.183 | INFO    | batcher    | -        | engagement.engine | ROUND #4 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:42:34.187 | INFO    | batcher    | -        | engagement.engine | BATCH #4.1 | size=1 | jobs=['2cd8727a'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:42:34.244 | INFO    | batcher    | -        | engagement.engine | BATCH #4.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:42:34.244 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=2cd8727a | engagement=0 conf=0.7335 | prep=17ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:42:34.245 | INFO    | batcher    | -        | engagement.engine | ROUND #4 done | 62ms
+2026-10-31 15:42:34.245 | INFO    | MainThread | 2cd8727a | engagement.engine | WAIT job=2cd8727a result mil gaya | waited=113ms
+2026-10-31 15:42:34.246 | INFO    | MainThread | 2cd8727a | engagement.api | RESPONSE sync | engagement=0 confidence=0.7335 | pipeline total=131ms
+2026-10-31 15:42:34.246 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1268ms (client ko response tak)
+2026-10-31 15:42:34.246 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:43:00.241 | INFO    | MainThread | db8a0e9f | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=658734 | rid=db8a0e9fe8824972bb4452570a216b4c
+2026-10-31 15:43:01.265 | INFO    | MainThread | db8a0e9f | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:43:01.265 | INFO    | MainThread | db8a0e9f | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:43:01.266 | INFO    | MainThread | db8a0e9f | engagement.api | STEP 2 upload read | frames=16 total=0.65MB | landmarks=0.01MB
+2026-10-31 15:43:01.266 | INFO    | MainThread | db8a0e9f | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:43:01.266 | INFO    | MainThread | db8a0e9f | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:43:01.277 | INFO    | uvloop_0   | db8a0e9f | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:43:01.278 | INFO    | uvloop_0   | db8a0e9f | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:43:01.283 | INFO    | uvloop_0   | db8a0e9f | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:43:01.283 | INFO    | uvloop_0   | db8a0e9f | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:43:01.284 | INFO    | MainThread | db8a0e9f | engagement.engine | PREPROCESS ok | job=db8a0e9f rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=17ms
+2026-10-31 15:43:01.284 | INFO    | MainThread | db8a0e9f | engagement.engine | SUBMIT job=db8a0e9f buffer me gaya | buffer=1/256
+2026-10-31 15:43:01.284 | INFO    | MainThread | db8a0e9f | engagement.engine | WAIT job=db8a0e9f result ka intezar (timeout=120s)
+2026-10-31 15:43:01.334 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:43:01.335 | INFO    | batcher    | -        | engagement.engine | ROUND #5 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:43:01.339 | INFO    | batcher    | -        | engagement.engine | BATCH #5.1 | size=1 | jobs=['db8a0e9f'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:43:01.396 | INFO    | batcher    | -        | engagement.engine | BATCH #5.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:43:01.396 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=db8a0e9f | engagement=0 conf=0.5612 | prep=17ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:43:01.397 | INFO    | batcher    | -        | engagement.engine | ROUND #5 done | 62ms
+2026-10-31 15:43:01.397 | INFO    | MainThread | db8a0e9f | engagement.engine | WAIT job=db8a0e9f result mil gaya | waited=113ms
+2026-10-31 15:43:01.397 | INFO    | MainThread | db8a0e9f | engagement.api | RESPONSE sync | engagement=0 confidence=0.5612 | pipeline total=131ms
+2026-10-31 15:43:01.398 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1157ms (client ko response tak)
+2026-10-31 15:43:01.398 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:43:30.357 | INFO    | MainThread | 5bfedea2 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=639606 | rid=5bfedea2b0304bb68c4584fea544addc
+2026-10-31 15:43:31.660 | INFO    | MainThread | 5bfedea2 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:43:31.662 | INFO    | MainThread | 5bfedea2 | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:43:31.662 | INFO    | MainThread | 5bfedea2 | engagement.api | STEP 2 upload read | frames=16 total=0.63MB | landmarks=0.01MB
+2026-10-31 15:43:31.663 | INFO    | MainThread | 5bfedea2 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:43:31.663 | INFO    | MainThread | 5bfedea2 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:43:31.674 | INFO    | uvloop_0   | 5bfedea2 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:43:31.675 | INFO    | uvloop_0   | 5bfedea2 | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:43:31.680 | INFO    | uvloop_0   | 5bfedea2 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:43:31.680 | INFO    | uvloop_0   | 5bfedea2 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:43:31.681 | INFO    | MainThread | 5bfedea2 | engagement.engine | PREPROCESS ok | job=5bfedea2 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=18ms
+2026-10-31 15:43:31.681 | INFO    | MainThread | 5bfedea2 | engagement.engine | SUBMIT job=5bfedea2 buffer me gaya | buffer=1/256
+2026-10-31 15:43:31.681 | INFO    | MainThread | 5bfedea2 | engagement.engine | WAIT job=5bfedea2 result ka intezar (timeout=120s)
+2026-10-31 15:43:31.731 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:43:31.732 | INFO    | batcher    | -        | engagement.engine | ROUND #6 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:43:31.736 | INFO    | batcher    | -        | engagement.engine | BATCH #6.1 | size=1 | jobs=['5bfedea2'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:43:31.793 | INFO    | batcher    | -        | engagement.engine | BATCH #6.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:43:31.794 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=5bfedea2 | engagement=0 conf=0.5469 | prep=18ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:43:31.794 | INFO    | batcher    | -        | engagement.engine | ROUND #6 done | 62ms
+2026-10-31 15:43:31.794 | INFO    | MainThread | 5bfedea2 | engagement.engine | WAIT job=5bfedea2 result mil gaya | waited=113ms
+2026-10-31 15:43:31.795 | INFO    | MainThread | 5bfedea2 | engagement.api | RESPONSE sync | engagement=0 confidence=0.5469 | pipeline total=132ms
+2026-10-31 15:43:31.795 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1438ms (client ko response tak)
+2026-10-31 15:43:31.795 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:44:00.323 | INFO    | MainThread | 59185df6 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=716434 | rid=59185df6f74a440d8d166d1b33fccbe6
+2026-10-31 15:44:02.125 | INFO    | MainThread | 59185df6 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:44:02.126 | INFO    | MainThread | 59185df6 | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:44:02.126 | INFO    | MainThread | 59185df6 | engagement.api | STEP 2 upload read | frames=16 total=0.70MB | landmarks=0.01MB
+2026-10-31 15:44:02.126 | INFO    | MainThread | 59185df6 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:44:02.127 | INFO    | MainThread | 59185df6 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:44:02.138 | INFO    | uvloop_0   | 59185df6 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:44:02.138 | INFO    | uvloop_0   | 59185df6 | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:44:02.143 | INFO    | uvloop_0   | 59185df6 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:44:02.144 | INFO    | uvloop_0   | 59185df6 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:44:02.144 | INFO    | MainThread | 59185df6 | engagement.engine | PREPROCESS ok | job=59185df6 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=18ms
+2026-10-31 15:44:02.145 | INFO    | MainThread | 59185df6 | engagement.engine | SUBMIT job=59185df6 buffer me gaya | buffer=1/256
+2026-10-31 15:44:02.145 | INFO    | MainThread | 59185df6 | engagement.engine | WAIT job=59185df6 result ka intezar (timeout=120s)
+2026-10-31 15:44:02.195 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:44:02.195 | INFO    | batcher    | -        | engagement.engine | ROUND #7 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:44:02.199 | INFO    | batcher    | -        | engagement.engine | BATCH #7.1 | size=1 | jobs=['59185df6'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:44:02.256 | INFO    | batcher    | -        | engagement.engine | BATCH #7.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:44:02.257 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=59185df6 | engagement=0 conf=0.7619 | prep=18ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:44:02.257 | INFO    | batcher    | -        | engagement.engine | ROUND #7 done | 62ms
+2026-10-31 15:44:02.258 | INFO    | MainThread | 59185df6 | engagement.engine | WAIT job=59185df6 result mil gaya | waited=113ms
+2026-10-31 15:44:02.258 | INFO    | MainThread | 59185df6 | engagement.api | RESPONSE sync | engagement=0 confidence=0.7619 | pipeline total=131ms
+2026-10-31 15:44:02.259 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1935ms (client ko response tak)
+2026-10-31 15:44:02.259 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:44:30.134 | INFO    | MainThread | e7f2c348 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=605068 | rid=e7f2c348080848f5b35879724e651464
+2026-10-31 15:44:31.184 | INFO    | MainThread | e7f2c348 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:44:31.184 | INFO    | MainThread | e7f2c348 | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:44:31.185 | INFO    | MainThread | e7f2c348 | engagement.api | STEP 2 upload read | frames=16 total=0.59MB | landmarks=0.01MB
+2026-10-31 15:44:31.185 | INFO    | MainThread | e7f2c348 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:44:31.185 | INFO    | MainThread | e7f2c348 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:44:31.197 | INFO    | uvloop_0   | e7f2c348 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:44:31.197 | INFO    | uvloop_0   | e7f2c348 | engagement.engine | PREP 1/3 frames decode ok | 12ms
+2026-10-31 15:44:31.203 | INFO    | uvloop_0   | e7f2c348 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:44:31.203 | INFO    | uvloop_0   | e7f2c348 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:44:31.204 | INFO    | MainThread | e7f2c348 | engagement.engine | PREPROCESS ok | job=e7f2c348 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=18ms
+2026-10-31 15:44:31.204 | INFO    | MainThread | e7f2c348 | engagement.engine | SUBMIT job=e7f2c348 buffer me gaya | buffer=1/256
+2026-10-31 15:44:31.204 | INFO    | MainThread | e7f2c348 | engagement.engine | WAIT job=e7f2c348 result ka intezar (timeout=120s)
+2026-10-31 15:44:31.254 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:44:31.255 | INFO    | batcher    | -        | engagement.engine | ROUND #8 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:44:31.259 | INFO    | batcher    | -        | engagement.engine | BATCH #8.1 | size=1 | jobs=['e7f2c348'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:44:31.316 | INFO    | batcher    | -        | engagement.engine | BATCH #8.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:44:31.317 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=e7f2c348 | engagement=0 conf=0.5045 | prep=18ms queue_wait=55ms infer=57ms | total_in_server=131ms
+2026-10-31 15:44:31.317 | INFO    | batcher    | -        | engagement.engine | ROUND #8 done | 63ms
+2026-10-31 15:44:31.318 | INFO    | MainThread | e7f2c348 | engagement.engine | WAIT job=e7f2c348 result mil gaya | waited=113ms
+2026-10-31 15:44:31.318 | INFO    | MainThread | e7f2c348 | engagement.api | RESPONSE sync | engagement=0 confidence=0.5045 | pipeline total=133ms
+2026-10-31 15:44:31.319 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1184ms (client ko response tak)
+2026-10-31 15:44:31.319 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200
+2026-10-31 15:45:30.141 | INFO    | MainThread | 3cd68048 | engagement.api | API HIT  | POST /predict/frames | client=2404:3100:1808:e7ac:692a:e18f:79c2:3ff7 | content-length=642269 | rid=3cd680485c9e4017bd1d1ae85fe35f38
+2026-10-31 15:45:31.371 | INFO    | MainThread | 3cd68048 | engagement.api | ENDPOINT /predict/frames | frames=16 landmarks=uploaded .npy
+2026-10-31 15:45:31.372 | INFO    | MainThread | 3cd68048 | engagement.api | STEP 1 meta parse ok | keys=['sessionId', 'meetingId', 'windowIndex', 'userEmail', 'partial', 'framesFilled', 'frameIntervalMs', 'startedAt', 'endedAt']
+2026-10-31 15:45:31.372 | INFO    | MainThread | 3cd68048 | engagement.api | STEP 2 upload read | frames=16 total=0.63MB | landmarks=0.01MB
+2026-10-31 15:45:31.372 | INFO    | MainThread | 3cd68048 | engagement.api | MODE sync | preprocess -> buffer -> model, result isi response me
+2026-10-31 15:45:31.373 | INFO    | MainThread | 3cd68048 | engagement.engine | PREPROCESS start | prep=prep_frames
+2026-10-31 15:45:31.383 | INFO    | uvloop_0   | 3cd68048 | engagement.engine | Frames decode: 16 images, shape=(160, 160, 3)
+2026-10-31 15:45:31.384 | INFO    | uvloop_0   | 3cd68048 | engagement.engine | PREP 1/3 frames decode ok | 11ms
+2026-10-31 15:45:31.389 | INFO    | uvloop_0   | 3cd68048 | engagement.engine | PREP 2/3 resize + center-crop -> tensor ok | 5ms
+2026-10-31 15:45:31.389 | INFO    | uvloop_0   | 3cd68048 | engagement.engine | PREP 3/3 landmarks .npy parse (file se) ok | 0ms
+2026-10-31 15:45:31.390 | INFO    | MainThread | 3cd68048 | engagement.engine | PREPROCESS ok | job=3cd68048 rgb=(3, 16, 160, 160) lms=(16, 52, 3) | total=17ms
+2026-10-31 15:45:31.390 | INFO    | MainThread | 3cd68048 | engagement.engine | SUBMIT job=3cd68048 buffer me gaya | buffer=1/256
+2026-10-31 15:45:31.390 | INFO    | MainThread | 3cd68048 | engagement.engine | WAIT job=3cd68048 result ka intezar (timeout=120s)
+2026-10-31 15:45:31.440 | INFO    | batcher    | -        | engagement.engine | COLLECT: 1 job(s) buffer se uthay | mode=normal | buffer_baqi=0 | carry=0
+2026-10-31 15:45:31.441 | INFO    | batcher    | -        | engagement.engine | ROUND #9 start | jobs=1 -> 1 batch(es) of <=4 | device=cuda:0
+2026-10-31 15:45:31.445 | INFO    | batcher    | -        | engagement.engine | BATCH #9.1 | size=1 | jobs=['3cd68048'] | rgb=(1, 3, 16, 160, 160) lms=(1, 16, 52, 3)
+2026-10-31 15:45:31.502 | INFO    | batcher    | -        | engagement.engine | BATCH #9.1 model forward ok | 57ms (57ms/sample)
+2026-10-31 15:45:31.503 | INFO    | batcher    | -        | engagement.engine | JOB DONE job=3cd68048 | engagement=0 conf=0.4208 | prep=17ms queue_wait=55ms infer=57ms | total_in_server=130ms
+2026-10-31 15:45:31.503 | INFO    | MainThread | 3cd68048 | engagement.engine | WAIT job=3cd68048 result mil gaya | waited=113ms
+2026-10-31 15:45:31.503 | INFO    | batcher    | -        | engagement.engine | ROUND #9 done | 63ms
+2026-10-31 15:45:31.504 | INFO    | MainThread | 3cd68048 | engagement.api | RESPONSE sync | engagement=0 confidence=0.4208 | pipeline total=131ms
+2026-10-31 15:45:31.504 | INFO    | MainThread | -        | engagement.api | API DONE | POST /predict/frames -> 200 | 1363ms (client ko response tak)
+2026-10-31 15:45:31.504 | INFO    | MainThread | -        | uvicorn.access | 2404:3100:1808:e7ac:692a:e18f:79c2:3ff7:0 - "POST /predict/frames HTTP/1.1" 200

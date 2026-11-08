@@ -1,0 +1,16 @@
+# =============================================================================
+# .env -- SIRF SECRETS yahan rakho. Isay git me commit MAT karna (.gitignore me .env daalo).
+# Baqi saari settings config.py me hain.
+# Real environment variable ho to wo .env par frontal hota hai (docker/systemd ke liye).
+# =============================================================================
+
+# --- Backend 1: "request receive ho gayi" ki notification yahan jati hai ----
+# Valid request milte hi (input validate + buffer me daalne ke baad) yahan POST hota hai.
+RECEIVED_URL=https://backend-one.example.com/api/engagement/received
+RECEIVED_TOKEN=change-me-received-token
+
+# --- Backend 2: batch ka result yahan jata hai -------------------------------
+# Har batch ke baad yahan JSON list POST hoti hai (har item = meta + engagement_Level + confidence).
+# Ye URL khali chhor do to API purane tareeqe se kaam karegi (result usi response me).
+RESULT_URL=https://backend-two.example.com/api/engagement/results
+RESULT_TOKEN=change-me-result-token

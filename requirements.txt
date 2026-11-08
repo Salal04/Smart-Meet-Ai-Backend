@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+numpy
+opencv-python-headless
+mediapipe
+decord
+torch
+timm
+httpx
