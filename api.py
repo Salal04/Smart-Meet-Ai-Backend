@@ -35,6 +35,7 @@ from fastapi.responses import JSONResponse
 import config
 import applog
 import engine
+import tcn_inference
 
 log = applog.get_logger("api")
 
@@ -277,6 +278,24 @@ def health():
     return {"status": "ok", "mode": "async" if config.RESULT_URL else "sync",
             "buffer": engine.buffer_size(), "batch_size": engine.BATCH_SIZE,
             "num_workers": engine.NUM_WORKERS}
+
+
+@app.post("/predict/tcn-landmarks")
+async def predict_tcn_landmarks(request: Request):
+    """TCN endpoint: JSON body contains only landmarks shaped [16][52][3]."""
+    try:
+        body = await request.json()
+    except Exception:
+        raise _fail(422, "Request body valid JSON honi chahiye.")
+    if not isinstance(body, dict) or set(body) != {"landmarks"}:
+        raise _fail(422, 'JSON body me sirf "landmarks" field honi chahiye.')
+    try:
+        return await asyncio.to_thread(tcn_inference.predict, body["landmarks"])
+    except (ValueError, TypeError) as e:
+        raise _fail(422, str(e))
+    except Exception as e:
+        log.error("TCN inference fail: %s: %s", type(e).__name__, e, exc_info=True)
+        raise HTTPException(500, f"TCN inference fail: {type(e).__name__}: {e}")
 
 
 if __name__ == "__main__":
